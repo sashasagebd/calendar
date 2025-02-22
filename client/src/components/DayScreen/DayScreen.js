@@ -14,10 +14,10 @@ const DayScreen = () => {
       <button onClick={() => navigate("/")} className="day-screen__back-button">
         ← Back to Calendar
       </button>
-      <h2 className="day-screen__title">Events for {format(selectedDate, "MMMM d, yyyy")}</h2>
-      <div className="day-screen__content">
+      <h2 className="day-screen-title">Events for {format(selectedDate, "MMMM d, yyyy")}</h2>
+      <div className="day-screen-content">
         {/* Placeholder for events */}
-        <p className="day-screen__no-events">No events scheduled.</p>
+        <p className="day-screen-no-events">No events scheduled.</p>
       </div>
     </div>
   );

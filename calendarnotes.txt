@@ -41,6 +41,7 @@ FRONTEND/BACKEND COMMUNICATION:
 
 GIT/GITHUB:
     -git is version control
+        
         -can commit changes when ready
             -git add ___ 
                 -use (.) or project directory to add whole project
@@ -56,6 +57,24 @@ GIT/GITHUB:
             -git log path (specific file)
             -git log --oneline (more compact)
             -q to quit
+            -VERY useful for finding old versions and their commit-hash
         
+        -can restore old versions
+            -git checkout <commit-hash> -- path/to/your/file
+                -restores one or multiple files
+            -git reset (flag) <commit-hash>
+                -restores entire project to prev commit
+                -(--soft) keeps working directory changes but undoes commits
+                -(--hard) completely restores repository to commit state, discarding changes made after
+            -git revert <commit-hash>
+                -undoes a specific commit w/out reqriting history
         
-    
+        -vscode also has a handy git ui (Source Control)
+
+        -restoring to latest version
+            -discard all changes in vscode source control
+            -git checkout -- .
+                -discards uncommitted changes
+            -stash and restore changes
+                -git stash
+                -git stash pop
