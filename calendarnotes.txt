@@ -26,6 +26,26 @@ REACT (frontend/UI):
 
 EXPRESS (backend):
 
+    STARTING:
+
+    COMMUNICATION:
+        -app.get('/', (req, res) => {
+	        res.send('SERVER UPPPPPP');
+         });
+        -app.get
+            -links with frontend
+        -res.send
+            -sends message to frontend
+
+JSON (JavaScript Object Notation):
+    -JSON is a lightweight format for storing + transporting data
+    -commonly used for sending data from server to webpage
+    -the json on client side using JSON.parse
+        -ie var obj = JSON.parse()
+    
+
+
+
 
 FRONTEND/BACKEND COMMUNICATION:
 -communication happens through API calls (application programming interface)
@@ -45,6 +65,7 @@ GIT/GITHUB:
         -can commit changes when ready
             -git add ___ 
                 -use (.) or project directory to add whole project
+                -stages the file/s
             -git commit -m ""
                 --m adds a message
                 - commits to git
@@ -58,6 +79,7 @@ GIT/GITHUB:
             -git log --oneline (more compact)
             -q to quit
             -VERY useful for finding old versions and their commit-hash
+            -git status shows currently staged files
         
         -can restore old versions
             -git checkout <commit-hash> -- path/to/your/file

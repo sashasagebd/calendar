@@ -46,7 +46,7 @@ const CalendarGrid = () => {
           <Link
             key={index}
             to={`/day/${format(day, "yyyy-MM-dd")}`} 
-            className={`calendar__day ${format(day, "MM") === format(monthStart, "MM") ? "calendar__day--current" : "calendar__day--other"}`}
+            className={`calendar-day ${format(day, "MM") === format(monthStart, "MM") ? "calendar-day--current" : "calendar-day--other"}`}
           >
             {format(day, "d")}
           </Link>

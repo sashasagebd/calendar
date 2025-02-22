@@ -8,9 +8,9 @@ app.use(cors());
 app.use(express.json());
 
 //Sample route to check server
-//app.get('/', (req, res) => {
-//	res.send('LESGOOOOOOOO');
-//});
+app.get('/', (req, res) => {
+	res.send('SERVER UPPPPPP');
+});
 
 //Start server
 app.listen(PORT, () => {
