@@ -1,0 +1,61 @@
+REACT (frontend/UI):
+- react uses jsx, which allows html to be written as part of a javascript script
+    - ive seen html being returned so far usually
+    - allows JS logic in html
+
+    HTML:
+        -div tag (<div ____> </div>)
+            -a div element takes up full available with, and starts on a new line
+            -easy to group related things/keep things on same level of DOM
+            -flexible container
+            -import a matching css file for ez styling
+
+
+    COMPONENTS:
+        -export default components 
+        -
+
+    ROUTING/LINKING:
+        -import {} from 'react-router-dom'
+        -this allows urls to be used as part of app
+            -can create links that have returns, etc
+        -wrap return statement of App.js in <Router>
+        -wrap individual Route(s) with <Routes>
+        -<Route path="PATHNAME" element = {<COMPONENT />}
+    
+
+EXPRESS (backend):
+
+
+FRONTEND/BACKEND COMMUNICATION:
+-communication happens through API calls (application programming interface)
+    -essentially, application sends message to API endpoint in server
+    -endpoint checks request and responds
+    -response gives info about request result
+        -response codes(200: success, 400: invalid, 401: unauthorized, 403: forbidden, 404: requested resource doesn't exist)
+    FETCHING:
+
+    USER ADDING EVENT:
+
+    BACKEND:
+
+GIT/GITHUB:
+    -git is version control
+        -can commit changes when ready
+            -git add ___ 
+                -use (.) or project directory to add whole project
+            -git commit -m ""
+                --m adds a message
+                - commits to git
+            -git push origin main
+                -pushes to the main branch in github
+                -can push to different branches
+
+        -can view version history
+            -git log
+            -git log path (specific file)
+            -git log --oneline (more compact)
+            -q to quit
+        
+        
+    

@@ -1,7 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import CalendarGrid from "./components/CalendarGrid/CalendarGrid.js";
+import DayScreen from './components/DayScreen/DayScreen.js';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 function App() {
 
@@ -13,30 +15,30 @@ function App() {
 			.then(response => {
 				setMessage(response.data); //Store response in state
 			})
-			.catch(error => {
+			.catch(error => { 
 				console.error('Error fetching data:', error); //log errors
+        setMessage("Failed to connect to backend")
 			});
 	}, []); //empty array means runs once when component mounts
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-				<p>{message}</p> 
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <div className="App p-4">
+
+        {/* Message Section */}
+        <div className="flex items-center space-x-4">
+          {message && <p className="text-gray-700">{message}</p>}
+
+        </div>
+
+
+      </div>
+      <Routes>
+        <Route path="/" element={<CalendarGrid />} /> 
+        <Route path="/day/:date" element={<DayScreen />} /> 
+      </Routes>
+    </Router>
+  );  
 }
 
 export default App;
