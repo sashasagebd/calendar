@@ -3,7 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { 
   format,
   addDays,
- } from "date-fns";
+  isToday,
+} from "date-fns";
 
 const DayScreen = () => {
   const { date } = useParams(); // Get date from URL
@@ -12,7 +13,10 @@ const DayScreen = () => {
   let selectedDate = date;
   selectedDate = addDays(selectedDate, 1); //increment day by 1 since was one off before
 
-  const formattedDate = format(selectedDate, 'MMMM dd, yyyy');
+  let formattedDate = format(selectedDate, 'MMMM dd, yyyy');
+  if(isToday(formattedDate)){
+    formattedDate = "Today";
+  }
 
   return (
     <div className="day-screen">

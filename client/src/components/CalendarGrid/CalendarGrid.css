@@ -1,3 +1,10 @@
+a{
+    /*Changes links/anchor tags*/
+    color: black; 
+    text-decoration: none 
+}
+
+
 .calendar{
     max-width: 40rem; /*rem is font size of browser font*/
     margin: auto;
@@ -42,6 +49,16 @@
     aspect-ratio: 1; /* makes days square */
 }
 
-.dim{
-    opacity: .25;
+.day-current{
+    padding: 1rem;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1; /* makes days square */
 }
+
+.dim{
+    opacity: .3;
+}
+

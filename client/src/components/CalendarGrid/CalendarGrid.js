@@ -7,9 +7,11 @@ import {
   addDays,
   addMonths,
   format,
+  isToday,
 } from "date-fns";
 import "./CalendarGrid.css";
 import { Link } from "react-router-dom"; 
+//import { isToday } from "../../utils/dateUtils.js"
 
 const CalendarGrid = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -46,7 +48,7 @@ const CalendarGrid = () => {
           <Link
             key={index}
             to={`/day/${format(day, "yyyy-MM-dd")}`} 
-            className={`calendar-day ${format(day, "MM") === format(monthStart, "MM") ? "calendar-day--current" : "calendar-day--other"}`}
+            className={`day ${format(day, "MM") !== format(monthStart, "MM") ? "dim" : ""} ${isToday(day) ? "day-current" : ""}`} //if day not in current month, dim square
           >
             {format(day, "d")}
           </Link>

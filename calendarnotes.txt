@@ -22,6 +22,8 @@ REACT (frontend/UI):
         -wrap return statement of App.js in <Router>
         -wrap individual Route(s) with <Routes>
         -<Route path="PATHNAME" element = {<COMPONENT />}
+
+        -useParams
     
 
 EXPRESS (backend):
@@ -100,3 +102,18 @@ GIT/GITHUB:
             -stash and restore changes
                 -git stash
                 -git stash pop
+
+DATE-FNS
+-date library
+-imports:
+    -format (formatting options for dates)
+        -lots of different formatting options
+        -'MM-dd-yyyy' is general style
+        -MMMM gives full month name
+        -EEEE full day name (like monday)
+    -startOfMonth
+    -endOfMonth
+    -addDay,
+    -etc
+    
+        
