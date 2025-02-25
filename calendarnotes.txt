@@ -9,6 +9,10 @@ REACT (frontend/UI):
             -easy to group related things/keep things on same level of DOM
             -flexible container
             -import a matching css file for ez styling
+        -ul tag
+            -makes a list without any elements
+            -elements are added with li
+            -makes it so new list items can be easily added and removed
 
 
     COMPONENTS:
@@ -22,9 +26,11 @@ REACT (frontend/UI):
         -wrap return statement of App.js in <Router>
         -wrap individual Route(s) with <Routes>
         -<Route path="PATHNAME" element = {<COMPONENT />}
+        -useParams allows program to use URL params
 
-        -useParams
-    
+CSS (Cascading Style Sheets!):
+    -creating a css file for each JS component allows ezpz styling
+    -a{} is used to style links
 
 EXPRESS (backend):
 
@@ -115,5 +121,5 @@ DATE-FNS
     -endOfMonth
     -addDay,
     -etc
-    
+
         

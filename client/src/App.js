@@ -23,12 +23,10 @@ function App() {
 
   return (
     <Router>
-      <div className="App p-4">
+      <div className="App">
 
-        {/* Message Section */}
-        <div className="flex items-center space-x-4">
-          {message && <p className="text-gray-700">{message}</p>}
-
+        <div>
+        <p>{message}</p>
         </div>
 
 
