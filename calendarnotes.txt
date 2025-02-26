@@ -27,6 +27,8 @@ REACT (frontend/UI):
         -wrap individual Route(s) with <Routes>
         -<Route path="PATHNAME" element = {<COMPONENT />}
         -useParams allows program to use URL params
+        -only one route with the same path can be rendered at a time
+            -if you want a component to appear on all pages (ie navbar), don't include it in your routes
 
 CSS (Cascading Style Sheets!):
     -creating a css file for each JS component allows ezpz styling

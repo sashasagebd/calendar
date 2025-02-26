@@ -1,37 +1,32 @@
-import { useParams, useNavigate } from 'react-router-dom';
+//import { useParams, useNavigate } from 'react-router-dom';
+import { useState } from 'react' //we use useState instead of native html
 
 const ToDo = () => {
+  const [events, setEvents] = useState([]);
   function handleSubmit(e){
-    
+    e.preventDefault(); //prevents form from POST to backend
     const form = e.target;
     const formData = new FormData(form);
     const formJson = Object.fromEntries(formData.entries()); //this will change to sending to server
-  }
+ 
+    setEvents([...events, formJson["add-events"]])
 
-  
-  //get info from backend for to do list
-  
-  const events = [] = formJson;
-  
-
-  //need to seperate days and times, hash table with days or smth
-  const toDoList = document.getElementById('to-do-list');
-  for(let event of events){
-    const newListItem = document.createElement('li');
-    newListItem.textContent = event;
-    toDoList.appendChild(newListItem);
+    //reset form 
+    form.reset();
   }
 
   return(
     <div className="to-do">
         <ul id="to-do-list">
-
+         {events.map((event, index) => ( //
+           <li key={index}>{event}</li>
+         ))}
         </ul>
         <form method="post" onSubmit={handleSubmit}>
           <label>
             List test: <input name="add-events"></input>
           </label>
-
+          <button type="submit">Add</button>
         </form>  
     </div>
   );
