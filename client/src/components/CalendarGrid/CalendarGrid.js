@@ -11,7 +11,6 @@ import {
 } from "date-fns";
 import "./CalendarGrid.css";
 import { Link } from "react-router-dom"; 
-//import { isToday } from "../../utils/dateUtils.js"
 
 const CalendarGrid = () => {
   const [currentDate, setCurrentDate] = useState(new Date());

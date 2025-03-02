@@ -4,15 +4,15 @@ import "./Navbar.css";
 
 const Navbar = () => {
 
-   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return(
      <div className="navbar">
         <button onClick={() => navigate("/")} className="left-nav-button">
-           Homepage
+           &larr;
         </button>
         <button onClick={() => navigate("/to-do")} className="right-nav-button">
-           ToDo
+           &rarr;
         </button>
 
      </div>

@@ -1,11 +1,19 @@
+
+
 .right-nav-button{
     width: 4rem;
-    height: 6rem;
+    height: 20rem;
     float: right;
+    margin: 5px;
+    background: blue
 }
 
 .left-nav-button{
     width: 4rem;
-    height: 6rem;
+    height: 20rem;
+    float: left;
+    margin: 5px;
+    background: blue;
+    
 }
 
