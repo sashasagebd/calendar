@@ -1,3 +1,7 @@
+Dev Notes:
+-allow user to input events directly from calendar view? (eg right click on day and type event)
+
+
 REACT (frontend/UI):
 - react uses jsx, which allows html to be written as part of a javascript script
     - ive seen html being returned so far usually
@@ -33,6 +37,9 @@ REACT (frontend/UI):
 CSS (Cascading Style Sheets!):
     -creating a css file for each JS component allows ezpz styling
     -a{} is used to style links
+    -common styling
+        -display: (changes format and rendering)
+        -
 
 EXPRESS (backend):
 
