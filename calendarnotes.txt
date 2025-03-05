@@ -1,5 +1,6 @@
 Dev Notes:
 -allow user to input events directly from calendar view? (eg right click on day and type event)
+-format for storing and receiving dates: 'yyyy-MM-dd'
 
 
 REACT (frontend/UI):
@@ -21,7 +22,18 @@ REACT (frontend/UI):
 
     COMPONENTS:
         -export default components 
-        -
+
+    
+    REACT FUNCTIONS:
+        -useEffect(function, dependency (optional))
+            -the dependency determines how often it runs
+                -if the dependency variable changes, the effect will re-run
+                -no dependency runs on every render
+                -[] makes it only run once
+        -useState(initialState)
+            -used to add state variable to component
+            -const [state, setState] = useState(initialState)
+            -
 
     ROUTING/LINKING:
         -import {} from 'react-router-dom'
