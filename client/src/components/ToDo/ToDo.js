@@ -1,33 +1,53 @@
 //import { useParams, useNavigate } from 'react-router-dom';
-import { useState } from 'react' //we use useState instead of native html
+import React, { useState, useEffect } from 'react'; //we use useState instead of native html
+import NewEventScreen from '../NewEventScreen/NewEventScreen';
 
 const ToDo = () => {
   const [events, setEvents] = useState([]);
-  function handleSubmit(e){
-    e.preventDefault(); //prevents form from POST to backend
-    const form = e.target;
-    const formData = new FormData(form);
-    const formJson = Object.fromEntries(formData.entries()); //this will change to sending to server
- 
-    setEvents([...events, formJson["add-events"]])
+  const [showModal, setShowModal] = useState(false) //initial modal state is not open
 
-    //reset form 
-    form.reset();
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try{
+        const res = await fetch('http://localhost:5000/api/events');
+        const data = await res.json();
+        setEvents(data);
+      } catch(error){
+        console.error("Error fetching events:", error);
+      }
+    };
+    fetchEvents();
+  }, []);
+  
+  const handleEventCreated = (newEvent) => {
+    setEvents([...events, newEvent]);
+    setShowModal(false);
   }
+  
 
   return(
     <div className="to-do">
+      <h1 className="to-do-header">To-Do List</h1>
+    
+      {events.length > 0 ? ( /*if there are events*/
+
         <ul id="to-do-list">
-         {events.map((event, index) => ( //
-           <li key={index}>{event}</li>
+         {events.map((event) => ( 
+           <li key={event._id}>{event.title} - {event.date}</li>
          ))}
         </ul>
-        <form method="post" onSubmit={handleSubmit}>
-          <label>
-            List test: <input name="add-events"></input>
-          </label>
-          <button type="submit">Add</button>
-        </form>  
+      ) : (
+        <p>No events</p>
+      )}
+
+      <button
+        onClick={() => setShowModal(true)}
+        className="new-event-button"
+      >
+        Add New Event
+      </button>
+      
+      {showModal && <NewEventScreen onClose={() => setShowModal(false)} onEventCreated={handleEventCreated} /> /*show new event screen when showModal is true*/} 
     </div>
   );
 };

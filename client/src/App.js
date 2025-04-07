@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
 		//make GET request to fetch data from backend (express)
-		axios.get('http://localhost:5000')
+		axios.get('http://localhost:5000/api/events')
 			.then(response => {
 				setMessage(response.data); //Store response in state
 			})
@@ -29,10 +29,18 @@ function App() {
         <Navbar />
 
         <div>
-        <p>{message}</p>
+          {Array.isArray(message) ? (
+            <ul>
+              {message.map((event) => (
+                <li key={event._id}>{event.title}</li>
+              ))}
+            </ul>
+          ) : (
+            <p>{message}</p>
+          )}
+        
+        
         </div>
-
-
       </div>
       <Routes>
         <Route path="/" element={<CalendarGrid />} />

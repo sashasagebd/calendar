@@ -33,7 +33,8 @@ REACT (frontend/UI):
         -useState(initialState)
             -used to add state variable to component
             -const [state, setState] = useState(initialState)
-            -
+        -can pass a function from one component to another that then returns data to original component
+            
 
     ROUTING/LINKING:
         -import {} from 'react-router-dom'
@@ -46,6 +47,14 @@ REACT (frontend/UI):
         -only one route with the same path can be rendered at a time
             -if you want a component to appear on all pages (ie navbar), don't include it in your routes
 
+    LIMITATIONS:
+        -react cannot render objects or arrays directly as children in jsx
+            -can render strings, nums, react components, arrays of valid items
+            -NO OBJECTS RENDERED
+            -to render objects (such as an array of events), map over array and access properties of each event.
+                -essentially, access the smallest part or react component
+
+
 CSS (Cascading Style Sheets!):
     -creating a css file for each JS component allows ezpz styling
     -a{} is used to style links
@@ -53,7 +62,7 @@ CSS (Cascading Style Sheets!):
         -display: (changes format and rendering)
         -
 
-EXPRESS (backend):
+EXPRESS + MONGODB (backend):
 
     STARTING:
 
@@ -63,18 +72,27 @@ EXPRESS (backend):
          });
         -app.get
             -links with frontend
+            -req and res for request and response
         -res.send
             -sends message to frontend
+    
+    MONGODB+API
+        -POST requests creates new documents
+        -PUT updates documents
+        -DELETE deletes documents
+        -GET fetches data
+
+
 
 JSON (JavaScript Object Notation):
     -JSON is a lightweight format for storing + transporting data
     -commonly used for sending data from server to webpage
     -the json on client side using JSON.parse
         -ie var obj = JSON.parse()
+    -json() returns promise that resolves to json object
+    -follows object notation format (classes, descriptions, etc)
     
-
-
-
+    
 
 FRONTEND/BACKEND COMMUNICATION:
 -communication happens through API calls (application programming interface)
@@ -142,5 +160,11 @@ DATE-FNS
     -endOfMonth
     -addDay,
     -etc
+
+
+MongoDB
+-document database for app development & the cloud
+-stores data as JSON documents
+    -can be nested to express hierarchy
 
         
