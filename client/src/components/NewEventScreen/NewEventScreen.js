@@ -19,7 +19,12 @@ const NewEventScreen = ({ onClose, onEventCreated }) => { //closes on close or e
     try{
       setLoading(true);
 
-      const addedEvent = await createEvent(eventData)//res.json();
+      const utcDate = new Date(eventData.date).toISOString();
+
+      const addedEvent = await createEvent({
+        ...eventData,
+        date: utcDate,
+      });
       
       if(!addedEvent || addedEvent.error) throw new Error("Failed to create the event");
 

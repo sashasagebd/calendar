@@ -13,18 +13,23 @@ const DayScreen = () => {
   const navigate = useNavigate(); //navigation function
   const [events, setEvents] = useState([]) //set initial state as empty array to hold events
 
-  let selectedDate = date;
-  selectedDate = addDays(selectedDate, 1); //increment day by 1 since was one off before
+  const dateObj = new Date(date);
+  const adjustedDate = addDays(dateObj, 1); //increment day by 1 since was one off before
+  const selectedDate = format(adjustedDate, "yyyy-MM-dd"); //increment day by 1 since was one off before
 
   useEffect(() => {
     fetchEvents().then(setEvents);
   }, []); //only runs on first render cuz dependency []
 
-  let userFormattedDate = format(selectedDate, 'MMMM dd, yyyy');
-  if(isToday(userFormattedDate)){
+  let userFormattedDate = format(adjustedDate, 'MMMM dd, yyyy');
+
+
+  if(isToday(adjustedDate)){
     userFormattedDate = "Today";
-  }
-  const filteredEvents = events//.filter(event => event.date === selectedDate); //filters to only events for this day
+  } 
+  const filteredEvents = events.filter(event => format(new Date(event.date), "yyyy-MM-dd") === selectedDate); //filters to only events for this day
+
+  console.log(`"${selectedDate}"`);
 
 
 

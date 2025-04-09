@@ -1,6 +1,7 @@
 //import { useParams, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react'; //we use useState instead of native html
 import NewEventScreen from '../NewEventScreen/NewEventScreen';
+//import { format } from "date-fns";
 
 const ToDo = () => {
   const [events, setEvents] = useState([]);
@@ -23,6 +24,8 @@ const ToDo = () => {
     setEvents([...events, newEvent]);
     setShowModal(false);
   }
+
+  const sortedEvents = [...events].sort((a, b) => new Date(a.date) - new Date(b.date));
   
 
   return(
@@ -32,8 +35,10 @@ const ToDo = () => {
       {events.length > 0 ? ( /*if there are events*/
 
         <ul id="to-do-list">
-         {events.map((event) => ( 
-           <li key={event._id}>{event.title} - {event.date}</li>
+         {sortedEvents.map((event) => ( 
+          <li key={event._id || event.id}>
+            <strong>{event.title}</strong> — {new Date(event.date).toLocaleDateString()}
+          </li>
          ))}
         </ul>
       ) : (
