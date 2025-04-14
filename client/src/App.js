@@ -1,6 +1,5 @@
 import './App.css';
 import React from 'react';
-//import axios from 'axios';
 import CalendarGrid from "./components/CalendarGrid/CalendarGrid.js";
 import DayScreen from './components/DayScreen/DayScreen.js';
 import Navbar from './components/Navbar/Navbar.js';

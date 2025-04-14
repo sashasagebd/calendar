@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { createEvent } from '../../services/api'
+import { zonedTimeToUtc } from "date-fns-tz";
+import { parseISO } from "date-fns"
 import './NewEventScreen.css';
 
 const NewEventScreen = ({ onClose, onEventCreated }) => { //closes on close or event creation
@@ -19,11 +21,15 @@ const NewEventScreen = ({ onClose, onEventCreated }) => { //closes on close or e
     try{
       setLoading(true);
 
-      const utcDate = new Date(eventData.date).toISOString();
+      const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const localDate = parseISO(eventData.date + 'T00:00:00');
+
+      const utcDate = zonedTimeToUtc(localDate, timeZone);
+      const utcString = utcDate.toISOString();
 
       const addedEvent = await createEvent({
         ...eventData,
-        date: utcDate,
+        date: utcString,
       });
       
       if(!addedEvent || addedEvent.error) throw new Error("Failed to create the event");

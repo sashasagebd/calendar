@@ -1,10 +1,7 @@
 
 import { useParams, useNavigate } from "react-router-dom";
-import { 
-  format,
-  addDays,
-  isToday,
-} from "date-fns";
+import { format, addDays, isToday, parseISO } from "date-fns";
+import { formatInTimeZone } from "date-fns-tz";
 import { fetchEvents } from "../../services/api";
 import { useEffect, useState } from "react"; 
 
@@ -27,9 +24,9 @@ const DayScreen = () => {
   if(isToday(adjustedDate)){
     userFormattedDate = "Today";
   } 
-  const filteredEvents = events.filter(event => format(new Date(event.date), "yyyy-MM-dd") === selectedDate); //filters to only events for this day
 
-  console.log(`"${selectedDate}"`);
+  const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  const filteredEvents = events.filter(event => formatInTimeZone(parseISO(event.date), timeZone, "yyyy-MM-dd") === selectedDate); //filters to only events for this day
 
 
 
