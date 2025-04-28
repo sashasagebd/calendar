@@ -1,6 +1,8 @@
 //import { useParams, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react'; //we use useState instead of native html
 import NewEventScreen from '../NewEventScreen/NewEventScreen';
+import { deleteEvent } from '../../services/api.js';
+import "./ToDo.css";
 //import { format } from "date-fns";
 
 const ToDo = () => {
@@ -25,6 +27,15 @@ const ToDo = () => {
     setShowModal(false);
   }
 
+  const handleEventDeleted = async (eventId) => {
+    try{
+      await deleteEvent(eventId);
+      setEvents(prev => prev.filter(event => event._id !== eventId));
+    } catch (err) {
+      console.error('Delete request failed: ', err);
+    }
+  };
+
   const sortedEvents = [...events].sort((a, b) => new Date(a.date) - new Date(b.date));
   
 
@@ -34,10 +45,15 @@ const ToDo = () => {
     
       {events.length > 0 ? ( /*if there are events*/
 
-        <ul id="to-do-list">
+        <ul className="to-do-list">
          {sortedEvents.map((event) => ( 
-          <li key={event._id || event.id}>
+          <li key={event._id}>
             <strong>{event.title}</strong> — {new Date(event.date).toLocaleDateString()}
+            <button 
+              onClick={() => handleEventDeleted(event._id)}
+              className="delete-button">
+              Delete
+            </button>
           </li>
          ))}
         </ul>

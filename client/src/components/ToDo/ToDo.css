@@ -1,7 +1,13 @@
 .to-do{
     margin: auto;
+    text-align: center;
 }
 
 .to-do-list{
-    padding: 5rem;
+    list-style: none;
+}
+
+.delete-button{
+    margin: 10px;
+    display: inline-block;
 }

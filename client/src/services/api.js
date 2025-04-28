@@ -1,8 +1,8 @@
 const API_URL = "http://localhost:5000/api/events";
 
 export const fetchEvents = async () => {
-    const res = await fetch(API_URL);
-    return res.json();
+  const res = await fetch(API_URL);
+  return res.json();
 };
 
 export const createEvent = async (eventData) => {
@@ -23,6 +23,18 @@ export const createEvent = async (eventData) => {
 };
 
 export const deleteEvent = async (eventId) => {
-    await fetch(`${API_URL}/${eventId}`, { method: 'DELETE' });
+  try{
+    const res = await fetch(`${API_URL}/${eventId}`, {
+      method: 'DELETE'
+    });
+
+    if(!res.ok){
+      throw new Error("Failed to delete event");
+    }
+
+    return await res.json(); //send response to frontend
+  } catch(error){
+    return { error: error.message };
+  }
 };
 

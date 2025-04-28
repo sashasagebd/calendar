@@ -1,13 +1,13 @@
 
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { format, addDays, isToday, parseISO } from "date-fns";
 import { formatInTimeZone } from "date-fns-tz";
 import { fetchEvents } from "../../services/api";
 import { useEffect, useState } from "react"; 
+import "./DayScreen.css"
 
 const DayScreen = () => {
   const { date } = useParams(); //get date from URL
-  const navigate = useNavigate(); //navigation function
   const [events, setEvents] = useState([]) //set initial state as empty array to hold events
 
   const dateObj = new Date(date);
@@ -17,6 +17,7 @@ const DayScreen = () => {
   useEffect(() => {
     fetchEvents().then(setEvents);
   }, []); //only runs on first render cuz dependency []
+
 
   let userFormattedDate = format(adjustedDate, 'MMMM dd, yyyy');
 
@@ -32,13 +33,10 @@ const DayScreen = () => {
 
   return (
     <div className="day-screen">
-      <button onClick={() => navigate("/")} className="back-to-calendar-button">
-        ← Back to Calendar
-      </button>
       <div className="day-screen-content">
         <h2 className="day-screen-title">Events for {userFormattedDate}</h2>
         {filteredEvents.length > 0 ? (
-          <ul>
+          <ul className="day-screen-list">
             {filteredEvents.map(event => (
               <li key={event.id}>{event.title}</li>
             ))}

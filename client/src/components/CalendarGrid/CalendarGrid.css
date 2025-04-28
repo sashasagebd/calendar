@@ -6,6 +6,8 @@ a{
 
 
 .calendar{
+    display: flex;
+    flex-direction: column;
     max-width: 40rem; /*rem is font size of browser font*/
     margin: auto;
     text-align: center;
